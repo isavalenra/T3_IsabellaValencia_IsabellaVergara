@@ -40,7 +40,13 @@ class Imagenes:
         plt.title('Imagen con células etiquetadas')
         plt.axis('off')
         plt.show()
-        
+
+class DYCOM:
+    def __init__(self):
+        self.__archivos = []
+    def verarchivos(self):
+        return self.__archivos
+       
 def main():
     while True:
         print("\nMenú:")
