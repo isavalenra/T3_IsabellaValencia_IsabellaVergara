@@ -57,7 +57,18 @@ class DYCOM:
                     self.__archivos.append(corte)
             print('Archivos leídos:', len(self.__archivos))
         else:
-            print(f'La carpeta {arch} no existe')       
+            print(f'La carpeta {arch} no existe')  
+
+    def graficar(self):
+        for i in range(len(self.__archivos)):
+            img = self.__archivos[i].pixel_array.astype(np.float32)  # Convertir a tipo float32
+            img = (img - np.min(img)) / (np.max(img) - np.min(img))  # Normalizar valores
+            plt.figure(figsize=(15, 6))
+            plt.imshow(img, cmap='gray')  # Se puede especificar el mapa de colores aquí
+            plt.title(f'Imagen DICOM {i+1}')
+            plt.axis('off')  # Desactivar los ejes
+            plt.show()
+    
 def main():
     while True:
         print("\nMenú:")
