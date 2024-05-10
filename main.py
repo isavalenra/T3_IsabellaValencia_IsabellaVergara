@@ -86,7 +86,13 @@ def main():
             imagen.transformacion()
 
         elif opcion == 'b':
-          pass
+            DCM = DYCOM()
+
+            ruta = input("Ingrese el nombre de la carpeta: ")
+            DCM.load(ruta)
+            DCM.graficar()
+            print('graficado')
+          
 
         elif opcion == 'c':
             break
