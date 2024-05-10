@@ -46,7 +46,18 @@ class DYCOM:
         self.__archivos = []
     def verarchivos(self):
         return self.__archivos
-       
+    
+    def load(self, arch):
+        if os.path.exists(arch):
+            archivos = os.listdir(arch)
+            for archivo in archivos:
+                if archivo.endswith('.dcm'):
+                    file_path = os.path.join(arch, archivo)
+                    corte = pydicom.read_file(file_path)
+                    self.__archivos.append(corte)
+            print('Archivos leídos:', len(self.__archivos))
+        else:
+            print(f'La carpeta {arch} no existe')       
 def main():
     while True:
         print("\nMenú:")
